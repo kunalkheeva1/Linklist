@@ -35,11 +35,25 @@ public void addFirst(String data){
             }currentNode.next=newNode;          //so the new node which already has next as null wil be the current node
         }
     }
-
+    //creating a print method
+    public void print(){
+        if(head==null){
+            System.out.println("Empty list");
+            return;
+        }
+        Node currentNode= head;
+        while(currentNode!=null){
+            System.out.print(currentNode.data+" -> ");
+            currentNode= currentNode.next;
+        }
+        System.out.println("Null");
+    }
 
     public static void main(String[] args) {
         Linklist list = new Linklist();
         list.addFirst("Kunal");
+        list.addFirst("Kheeva");
+        list.print();
 
     }
 }
