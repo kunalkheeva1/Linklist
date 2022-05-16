@@ -113,5 +113,8 @@ public void addFirst(String data){
         list.addFirst("Kunal");
         list.print();
         System.out.println(list.getSize());
+        list.addFirst("Mr.");
+        System.out.println(list.getSize());
+
     }
 }
