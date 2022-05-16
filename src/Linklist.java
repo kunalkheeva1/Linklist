@@ -37,14 +37,14 @@ public void addFirst(String data){
     }
     //creating a print method
     public void print(){
-        if(head==null){
+        if(head==null){       //rare case without any element in the list will print empty list
             System.out.println("Empty list");
             return;
         }
-        Node currentNode= head;
-        while(currentNode!=null){
-            System.out.print(currentNode.data+" -> ");
-            currentNode= currentNode.next;
+        Node currentNode= head;                        //head node
+        while(currentNode!=null){                     //until the current node points null
+            System.out.print(currentNode.data+" -> ");//It will print my data
+            currentNode= currentNode.next;            //and will be updating my current node to point the next one
         }
         System.out.println("Null");
     }
