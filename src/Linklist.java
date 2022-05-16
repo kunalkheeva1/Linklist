@@ -14,16 +14,32 @@ public void addFirst(String data){
         Node newNode= new Node(data);
         if(head==null){           //if head is null assign newNode to it
             head =newNode;
+            return;
         }else{
             newNode.next =head;  //new node will point to head if there is already a list
             head =newNode;       //and the new head will be your added node
         }
+    }
 
-}
+    //creating a function to add the elements at the end of the list
+    public void addLast(String data){
+        Node newNode =new Node(data); //same as add first condition
+        if(head==null){
+            head =newNode;
+            return;
+        }
+        else{
+            Node currentNode= head;   //here took currentNode as changes with head will impact the whole thing
+            while(currentNode!=null){
+                currentNode =currentNode.next;   //changing the pointers until the condition reaches
+            }currentNode.next=newNode;          //so the new node which already has next as null wil be the current node
+        }
+    }
 
 
     public static void main(String[] args) {
         Linklist list = new Linklist();
+        list.addFirst("Kunal");
 
     }
 }
