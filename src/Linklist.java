@@ -9,6 +9,8 @@ public class Linklist {
             this.next =null;
         }
     }
+
+
     //creating a function to add the elements from the first
 public void addFirst(String data){
         Node newNode= new Node(data);
@@ -21,6 +23,8 @@ public void addFirst(String data){
         }
     }
 
+
+
     //creating a function to add the elements at the end of the list
     public void addLast(String data){
         Node newNode =new Node(data); //same as add first condition
@@ -30,11 +34,12 @@ public void addFirst(String data){
         }
         else{
             Node currentNode= head;   //here took currentNode as changes with head will impact the whole thing
-            while(currentNode!=null){
+            while(currentNode.next!=null){
                 currentNode =currentNode.next;   //changing the pointers until the condition reaches
-            }currentNode.next=newNode;          //so the new node which already has next as null wil be the current node
+            }  currentNode.next= newNode;        //so the new node which already has next as null wil be the current node
         }
     }
+
     //creating a print method
     public void print(){
         if(head==null){       //rare case without any element in the list will print empty list
@@ -49,10 +54,25 @@ public void addFirst(String data){
         System.out.println("Null");
     }
 
+    //creating method to delete the elements from the front one by one
+
+    public void deletefirst(){
+        if(head==null){
+            System.out.println("List is empty");
+        }else{
+            head= head.next;            //changing the next head to tbe consecutive one
+        }
+
+    }
+
+
+
     public static void main(String[] args) {
         Linklist list = new Linklist();
         list.addFirst("Kunal");
-        list.addFirst("Kheeva");
+        list.addLast("Kheeva");
+        list.print();
+        list.addLast("The Great");
         list.print();
 
     }
