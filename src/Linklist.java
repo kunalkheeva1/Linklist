@@ -97,6 +97,11 @@ public void addFirst(String data){
         list.print();
         list.deleteFirst();
       list.print();
-
+      list.deleteLast();
+        list.print();
+        list.addLast("The Great");
+        list.print();
+        list.addFirst("Kunal");
+        list.print();
     }
 }
