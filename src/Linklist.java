@@ -55,14 +55,35 @@ public void addFirst(String data){
     }
 
     //creating method to delete the elements from the front one by one
-
-    public void deletefirst(){
+    public void deleteFirst(){
         if(head==null){
             System.out.println("List is empty");
         }else{
             head= head.next;            //changing the next head to tbe consecutive one
         }
+    }
 
+    //creating the method to delete the last elements from the list
+    public void deleteLast(){
+        if(head==null){
+            System.out.println("List is empty");   //same corner case as used in delete first
+        return;
+        }
+
+        if (head.next==null){    //because if there is only one element then we are only deleting that one.
+            head=null;
+            return;
+        }
+
+        else{
+            Node secondLast= head;
+            Node lastNode= head.next;
+            while(lastNode.next!=null){      //until the condition reaches consecutively changing the orders of elements
+                lastNode = lastNode.next;
+                secondLast = secondLast.next;
+            }
+            secondLast.next=null;           //Once we reached our condition then the second last element will point to null
+        }
     }
 
 
@@ -74,6 +95,8 @@ public void addFirst(String data){
         list.print();
         list.addLast("The Great");
         list.print();
+        list.deleteFirst();
+      list.print();
 
     }
 }
