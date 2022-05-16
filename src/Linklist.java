@@ -1,4 +1,8 @@
 public class Linklist {
+    int size;
+    Linklist(){
+        this.size=0;     //initialize the size with zero, idk we do we initiliaze tho
+    }
     Node head;
     //creating a seperate class of node to acces the nodes
     public class Node{
@@ -17,10 +21,10 @@ public void addFirst(String data){
         if(head==null){           //if head is null assign newNode to it
             head =newNode;
             return;
-        }else{
-            newNode.next =head;  //new node will point to head if there is already a list
+        } size++;
+        newNode.next =head;  //new node will point to head if there is already a list
             head =newNode;       //and the new head will be your added node
-        }
+
     }
 
 
@@ -31,14 +35,14 @@ public void addFirst(String data){
         if(head==null){
             head =newNode;
             return;
-        }
-        else{
-            Node currentNode= head;   //here took currentNode as changes with head will impact the whole thing
+        } size++;
+
+        Node currentNode= head;   //here took currentNode as changes with head will impact the whole thing
             while(currentNode.next!=null){
                 currentNode =currentNode.next;   //changing the pointers until the condition reaches
             }  currentNode.next= newNode;        //so the new node which already has next as null wil be the current node
         }
-    }
+
 
     //creating a print method
     public void print(){
@@ -58,6 +62,7 @@ public void addFirst(String data){
     public void deleteFirst(){
         if(head==null){
             System.out.println("List is empty");
+            size--;        //idk why we added it here, this concept is not clear yet
         }else{
             head= head.next;            //changing the next head to tbe consecutive one
         }
@@ -69,6 +74,7 @@ public void addFirst(String data){
             System.out.println("List is empty");   //same corner case as used in delete first
         return;
         }
+        size--;            //idk if we are considering it for the upper half or the bottom of this method
 
         if (head.next==null){    //because if there is only one element then we are only deleting that one.
             head=null;
@@ -84,6 +90,9 @@ public void addFirst(String data){
             }
             secondLast.next=null;           //Once we reached our condition then the second last element will point to null
         }
+    }
+    public int getSize(){
+        return size;
     }
 
 
@@ -103,5 +112,6 @@ public void addFirst(String data){
         list.print();
         list.addFirst("Kunal");
         list.print();
+        System.out.println(list.getSize());
     }
 }
