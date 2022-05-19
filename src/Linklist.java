@@ -95,26 +95,38 @@ public void addFirst(String data){
         return size;
     }
 
+    //creating the method to reverse the nodes
+    public void  reverseNode(){
+        if(head==null||head.next==null){    //if its empty or just a list containing single element
+            return;
+        }
+        Node current = head.next;
+        Node previous = head;
+
+
+        while(current!=null){
+            Node next = current.next; //We here assign the next node to current.next, idk why are we declaring it in the loop, I tried outsite of it but did not work
+
+            current.next = previous;  //its basically current node pointing backwards
+            //values update
+            previous = current;     // now previous points toward current node
+            current = next;         //current links to next node and LOOP CONTINUTES
+        }
+        head.next = null;           // when current becomes null
+        head = previous;            //I wil receive previous value
+    }
+
 
 
     public static void main(String[] args) {
         Linklist list = new Linklist();
         list.addFirst("Kunal");
         list.addLast("Kheeva");
+        list.addLast("saab the great");
         list.print();
-        list.addLast("The Great");
+        list.reverseNode();
         list.print();
-        list.deleteFirst();
-      list.print();
-      list.deleteLast();
-        list.print();
-        list.addLast("The Great");
-        list.print();
-        list.addFirst("Kunal");
-        list.print();
-        System.out.println(list.getSize());
-        list.addFirst("Mr.");
-        System.out.println(list.getSize());
+
 
     }
 }
