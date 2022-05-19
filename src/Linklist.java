@@ -112,8 +112,8 @@ public void addFirst(String data){
             previous = current;     // now previous points toward current node
             current = next;         //current links to next node and LOOP CONTINUTES
         }
-        head.next = null;           // when current becomes null
-        head = previous;            //I wil receive previous value
+        head.next = null;           //next of the head will be null
+        head = previous;            //now the new head will be previous, so updating it
     }
 
 
